@@ -29,14 +29,14 @@ public class homework3 {
     String file = "test.png";
 
     @BeforeAll
-    static void configurations(){
+    static void Configurations(){
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1600x1080";
     }
 
     @Test
-    void registrationForm(){
+    void RegistrationForm(){
         open("/automation-practice-form");
         $("#firstName").setValue(name);
         $("#lastName").setValue(lastName);
