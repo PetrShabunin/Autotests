@@ -2,17 +2,15 @@ package work.home;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class homework3 {
+public class Homework3 {
     String name = "Petr";
     String lastName = "Petr 2";
     String email = "Petr@email.com";
