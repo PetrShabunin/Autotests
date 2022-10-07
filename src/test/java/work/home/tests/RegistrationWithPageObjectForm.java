@@ -26,7 +26,7 @@ public class RegistrationWithPageObjectForm {
     String address = "some address";
     String state = "Haryana";
     String city = "Panipat";
-    String sex = "Male";
+    String sex = work.home.pages.RegistrationFormPages.gender();
     String file = "test.png";
 
     RegistrationFormPages RegistrationFormPages = new RegistrationFormPages();
@@ -40,11 +40,16 @@ public class RegistrationWithPageObjectForm {
 
     @Test
     void RegistrationFormTest(){
-        RegistrationFormPages.openPage();
-        RegistrationFormPages.FirstName(name);
-        $("#lastName").setValue(lastName);
-        $("#userEmail").setValue(email);
-        $("#genterWrapper").$(byText(sex)).click();
+        RegistrationFormPages.
+                openPage().
+                firstName(name).
+                lastName(lastName).
+                userEmail(email).
+                userGender(sex);
+//        RegistrationFormPages.firstName(name);
+//        RegistrationFormPages.lastName(lastName);
+//        RegistrationFormPages.userEmail(email);
+//        RegistrationFormPages.userGender(sex);
         $("#userNumber").setValue(number);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(month);

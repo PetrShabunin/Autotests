@@ -1,29 +1,46 @@
 package work.home.pages;
 
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
 public class RegistrationFormPages {
-    String name = "Petr";
-    String lastName = "Petr 2";
-    String email = "Petr@email.com";
-    String number = "9990000000";
-    String day = "23";
-    String month = "June";
-    String year = "1996";
-    String subject = "Maths";
-    String hobbies = "Music";
-    String address = "some address";
-    String state = "Haryana";
-    String city = "Panipat";
-    String sex = "Male";
-    String file = "test.png";
-    public void openPage() {
-        open("/automation-practice-form");
+    //переменные
+    static String sex = "Female"; // можно ли добиться того же но более красиво? чтобы меняя одну переменную в этом файле - менялось и в другом
+    public static String gender(){
+        return sex;
     }
 
-    public void FirstName(String value) {
-        $("#firstName").setValue(value);
+    public SelenideElement
+            firstNameInput = $("#firstName"),
+            lastNameInput =  $("#lastName"),
+            userEmailInput =  $("#userEmail"),
+            userGenderChoise =  $("#genterWrapper");
+
+
+    public RegistrationFormPages openPage() {
+        open("/automation-practice-form");
+        return this;
     }
+
+    public RegistrationFormPages firstName(String value) {
+        firstNameInput.setValue(value);
+        return this;
+    }
+    public RegistrationFormPages lastName(String value) {
+        lastNameInput.setValue(value);
+        return this;
+    }
+    public RegistrationFormPages userEmail(String value) {
+        userEmailInput.setValue(value);
+        return this;
+    }
+    public RegistrationFormPages userGender(String sex){
+        userGenderChoise.$(byText(sex)).click();
+        return this;
+    }
+
 }
