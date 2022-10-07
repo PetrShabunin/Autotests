@@ -1,4 +1,4 @@
-package work.home;
+package work.home.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
@@ -10,7 +10,7 @@ import java.io.File;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Homework3 {
+public class RegistrationForm {
     String name = "Petr";
     String lastName = "Petr 2";
     String email = "Petr@email.com";
@@ -34,7 +34,7 @@ public class Homework3 {
     }
 
     @Test
-    void RegistrationForm(){
+    void RegistrationFormCheck(){
         open("/automation-practice-form");
         $("#firstName").setValue(name);
         $("#lastName").setValue(lastName);
