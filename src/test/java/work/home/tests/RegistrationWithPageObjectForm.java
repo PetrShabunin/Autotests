@@ -10,23 +10,22 @@ import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationWithPageObjectForm {
-    String name = "Petr";
+    String firstName = "Petr";
     String lastName = "Petr 2";
     String email = "Petr@email.com";
-    String number = "9990000000";
+    String phoneNumber = "9990000000";
     String day = "23";
     String month = "June";
-    String year = "1996";
+    String year = "1999";
     String subject = "Maths";
     String hobbies = "Music";
     String address = "some address";
     String state = "Haryana";
     String city = "Panipat";
-    String sex = work.home.pages.RegistrationFormPages.gender();
+    String sex = "Female";
     String file = "test.png";
 
     RegistrationFormPages RegistrationFormPages = new RegistrationFormPages();
@@ -40,42 +39,23 @@ public class RegistrationWithPageObjectForm {
 
     @Test
     void RegistrationFormTest(){
-        RegistrationFormPages.
-                openPage().
-                firstName(name).
-                lastName(lastName).
-                userEmail(email).
-                userGender(sex);
-//        RegistrationFormPages.firstName(name);
-//        RegistrationFormPages.lastName(lastName);
-//        RegistrationFormPages.userEmail(email);
-//        RegistrationFormPages.userGender(sex);
-        $("#userNumber").setValue(number);
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(month);
-        $(".react-datepicker__year-select").selectOption(year);
-        $(".react-datepicker__month").$(withText(day)).click();
-        $("#subjectsInput").setValue(subject).pressEnter();
-        $("#hobbiesWrapper").$(withText(hobbies)).click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/"+file));
-        $("#currentAddress").setValue(address);
-        $("#state").click();
-        $(withText(state)).click();
-        $("#city").click();
-        $(withText(city)).click();
-        $("#submit").click();
+        RegistrationFormPages
+                .openPage()
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setGender(sex)
+                .setNumber(phoneNumber)
+                .setBirthDate(month, year, day)
+                .setSubject(subject)
+                .setHobbies(hobbies)
+                .setPicture(file)
+                .setAddress(address)
+                .setState(state)
+                .setCity(city)
+                .submit()
 
-        //валидация данных
-
-        $(".modal-body").shouldHave(Condition.text(name+ " " +lastName));
-        $(".modal-body").shouldHave(Condition.text(email));
-        $(".modal-body").shouldHave(Condition.text(sex));
-        $(".modal-body").shouldHave(Condition.text(number));
-        $(".modal-body").shouldHave(Condition.text(day+ " " +month+ "," +year));
-        $(".modal-body").shouldHave(Condition.text(subject));
-        $(".modal-body").shouldHave(Condition.text(hobbies));
-        $(".modal-body").shouldHave(Condition.text(file));
-        $(".modal-body").shouldHave(Condition.text(address));
-        $(".modal-body").shouldHave(Condition.text(state+ " " +city));
+                .checkResults("Student Name", firstName+ " " +lastName)
+                .checkResults("Student Email", email);
     }
 }
