@@ -3,24 +3,20 @@ package work.home.pages;
 import com.codeborne.selenide.SelenideElement;
 import work.home.pages.components.CalendarComponent;
 import work.home.pages.components.ResultsTableComponent;
-
 import java.io.File;
-
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-
 public class RegistrationFormPages {
-CalendarComponent calendarComponent = new CalendarComponent();
-ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
-    public SelenideElement
+    private CalendarComponent calendarComponent = new CalendarComponent();
+    private ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
+    private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput =  $("#lastName"),
             userEmailInput =  $("#userEmail"),
             userGenderChoise =  $("#genterWrapper");
-
     public RegistrationFormPages openPage() {
         open("/automation-practice-form");
         return this;
@@ -84,6 +80,4 @@ ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
         resultsTableComponent.checkResult(key, value);
         return this;
     }
-
-
 }

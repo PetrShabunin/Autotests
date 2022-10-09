@@ -1,16 +1,9 @@
 package work.home.tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import work.home.pages.RegistrationFormPages;
-
-import java.io.File;
-
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationWithPageObjectForm {
     String firstName = "Petr";
@@ -27,19 +20,16 @@ public class RegistrationWithPageObjectForm {
     String city = "Panipat";
     String sex = "Female";
     String file = "test.png";
-
-    RegistrationFormPages RegistrationFormPages = new RegistrationFormPages();
-
+    RegistrationFormPages registrationFormPages = new RegistrationFormPages();
     @BeforeAll
-    static void Configurations(){
+    static void configurations(){
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1600x1080";
     }
-
     @Test
-    void RegistrationFormTest(){
-        RegistrationFormPages
+    void registrationFormTest(){
+        registrationFormPages
                 .openPage()
                 .setFirstName(firstName)
                 .setLastName(lastName)
@@ -54,7 +44,6 @@ public class RegistrationWithPageObjectForm {
                 .setState(state)
                 .setCity(city)
                 .submit()
-
                 .checkResults("Student Name", firstName+ " " +lastName)
                 .checkResults("Student Email", email);
     }
