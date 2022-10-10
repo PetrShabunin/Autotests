@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class RegistrationFormPages {
     private CalendarComponent calendarComponent = new CalendarComponent();
@@ -73,7 +74,7 @@ public class RegistrationFormPages {
         return this;
     }
     public RegistrationFormPages submit(){
-        $("#submit").click();
+        $("#submit").scrollTo().click();
         return this;
     }
     public RegistrationFormPages checkResults(String key, String value){

@@ -10,7 +10,7 @@ import java.io.File;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationForm {
+public class RegistrationFormTest {
     String name = "Petr";
     String lastName = "Petr 2";
     String email = "Petr@email.com";
