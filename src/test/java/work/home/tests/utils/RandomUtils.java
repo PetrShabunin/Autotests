@@ -3,7 +3,6 @@ package work.home.tests.utils;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-
 public class RandomUtils {
     public static String getRandomString(int length) {
         String SALTCHARS = "aAbBcCdDeEfFGHIJKLMNOPQRSTUVWXYZ";
@@ -15,7 +14,6 @@ public class RandomUtils {
         }
         return result.toString();
     }
-
     public static String getRandomEmail() {
         return getRandomString(10) + "@test.com";
     }
@@ -59,7 +57,6 @@ public class RandomUtils {
         Sports,
         Reading,
         Music;
-
         public static Hobbies getRandomHobbies() {
             int hobbiesPick = new Random().nextInt(Hobbies.values().length);
             return Hobbies.values()[hobbiesPick];

@@ -7,7 +7,6 @@ import work.home.tests.utils.RandomUtils;
 
 import java.util.Locale;
 
-
 public class TestBase extends RandomUtils {
     Faker faker = new Faker(new Locale("ru"));
     String firstName = getRandomString(8),
