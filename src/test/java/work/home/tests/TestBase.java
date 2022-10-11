@@ -5,8 +5,11 @@ import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import work.home.tests.utils.RandomUtils;
 
+import java.util.Locale;
+
+
 public class TestBase extends RandomUtils {
-    Faker faker = new Faker();
+    Faker faker = new Faker(new Locale("ru"));
     String firstName = getRandomString(8),
             lastName = getRandomString(8),
             email = getRandomEmail(),
@@ -15,8 +18,8 @@ public class TestBase extends RandomUtils {
             month = String.valueOf(Month.getRandomMonth()),
             year = getRandomYear(),
             subject = "Maths",
-            hobbies = "Music",
-            address = faker.starTrek().location(),
+            hobbies = String.valueOf(Hobbies.getRandomHobbies()),
+            address = faker.address().fullAddress(),
             state = "Haryana",
             city = "Panipat",
             sex = "Female",
