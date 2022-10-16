@@ -2,29 +2,29 @@ package work.home.pages;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class loginPageObjects {
-    public loginPageObjects openPageRT(){
+public class LoginPageObjects {
+    public LoginPageObjects openPageRT(){
         open("https://lk.rt.ru");
         return this;
     }
-    public loginPageObjects choseAuthMethod(){
+    public LoginPageObjects choseAuthMethod(){
         $("#t-btn-tab-login").click();
         return this;
     }
-    public loginPageObjects setUsername(String value){
+    public LoginPageObjects setUsername(String value){
         $("#username").setValue(value);
         return this;
     }
-    public loginPageObjects logout(){
+    public LoginPageObjects logout(){
         $(".profile-menu-button").click();
         $(".application-header_profile-logout-button").click();
         return this;
     }
-    public loginPageObjects setUserPass(String value){
+    public LoginPageObjects setUserPass(String value){
         $("#password").setValue(value);
         return this;
     }
-    public loginPageObjects loginButtonClick(){
+    public LoginPageObjects loginButtonClick(){
         $("#kc-login").click();
         return this;
     }

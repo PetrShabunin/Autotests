@@ -1,5 +1,14 @@
 package work.home.data;
 
 public enum MenuButtonsData {
-    Главная, Бонусы
+    MAIN("Главная"), BONUSES("Бонусы");
+
+    private final String desc;
+    MenuButtonsData(String desc) {
+        this.desc = desc;
+    }
+    public String getDesc() {
+        return desc;
+    }
 }
+

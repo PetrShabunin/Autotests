@@ -8,17 +8,15 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import work.home.data.MenuButtonsData;
-import work.home.pages.loginPageObjects;
-
+import work.home.pages.LoginPageObjects;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AuthorizationAndCheckTextsFromButtonTest extends TestBase {
-    loginPageObjects loginPageObjects = new loginPageObjects();
+    LoginPageObjects loginPageObjects = new LoginPageObjects();
     @AfterEach
     void endScenario(){
         loginPageObjects.logout();
@@ -27,8 +25,8 @@ public class AuthorizationAndCheckTextsFromButtonTest extends TestBase {
     }
     static Stream<Arguments> buttonsDataName(){
         return Stream.of(
-                Arguments.of(MenuButtonsData.Главная, List.of("Для меня", "Для бизнеса", "Для операторов", "Блог")),
-                Arguments.of(MenuButtonsData.Бонусы, List.of("Для меня", "Для бизнеса", "Для операторов", "Блог"))
+                Arguments.of(MenuButtonsData.MAIN.getDesc(), List.of("Для меня", "Для бизнеса", "Для операторов", "Блог")),
+                Arguments.of(MenuButtonsData.BONUSES.getDesc(), List.of("Для меня", "Для бизнеса", "Для операторов", "Блог"))
         );
     }
     @MethodSource("buttonsDataName")
