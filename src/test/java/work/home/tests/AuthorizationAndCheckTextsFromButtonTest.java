@@ -31,14 +31,14 @@ public class AuthorizationAndCheckTextsFromButtonTest extends TestBase {
     }
     @MethodSource("buttonsDataName")
     @ParameterizedTest(name = "Проверка отображения кнопок топ-бара для кнопки меню: {0}")
-    void checkTopButtonsTexts(MenuButtonsData menuButtonsData, List<String> topButtonsTexts){
+    void checkTopButtonsTexts(String menuButtonsData, List<String> topButtonsTexts){
         loginPageObjects
                 .openPageRT()
                 .choseAuthMethod()
                 .setUsername("rtkid_1665832683250")
                 .setUserPass("Test1234!")
                 .loginButtonClick();
-        $$(".application-header_bottom_navigation a").find(text(menuButtonsData.name())).click();
+        $$(".application-header_bottom_navigation a").find(text(menuButtonsData)).click();
         $$(".application-header_sector-links a").filter(visible)
                 .shouldHave(CollectionCondition.texts(topButtonsTexts));
     }
@@ -51,6 +51,6 @@ public class AuthorizationAndCheckTextsFromButtonTest extends TestBase {
                 .setUsername("rtkid_1665832683250")
                 .setUserPass("Test1234!")
                 .loginButtonClick();
-        $$(".application-header_bottom_navigation a").find(text(menuButtonsData.name()));
+        $$(".application-header_bottom_navigation a").find(text(menuButtonsData.getDesc()));
     }
 }
