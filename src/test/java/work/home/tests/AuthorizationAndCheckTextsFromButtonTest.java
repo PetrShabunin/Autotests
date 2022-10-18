@@ -51,6 +51,7 @@ public class AuthorizationAndCheckTextsFromButtonTest extends TestBase {
                 .setUsername("rtkid_1665832683250")
                 .setUserPass("Test1234!")
                 .loginButtonClick();
-        $$(".application-header_bottom_navigation a").find(text(menuButtonsData.getDesc()));
+        $$(".application-header_bottom_navigation a").find(text(menuButtonsData.getDesc())).shouldBe(visible);
+
     }
 }
