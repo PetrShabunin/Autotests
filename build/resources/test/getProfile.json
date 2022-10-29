@@ -1,0 +1,19 @@
+{
+  "id": 1434654546,
+  "login": "test",
+  "loginType": "LOGIN",
+  "userInfo": {
+    "name": "Тест",
+    "lastName": "Тестов",
+    "middleName": "Тестович",
+    "birthday": "06.08.1982",
+    "email": "test@gmail.com",
+    "phone": "99999999999"
+  },
+  "socialSystems": [{
+    "userId": "1691129098",
+    "providerAlias": "oidc_ya",
+    "providerDisplayName": "Yandex"
+  }],
+  "isError": false
+}
