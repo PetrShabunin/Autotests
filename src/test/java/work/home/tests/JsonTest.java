@@ -16,7 +16,7 @@ public class JsonTest{
     static ClassLoader cl = JsonTest.class.getClassLoader();
 
     @Test
-    void jsonTest(){
+    void jsonTestWithGson(){
         InputStream is = cl.getResourceAsStream("getProfile.json");
         Gson gson = new Gson();
         GetProfile getProfile = gson.fromJson(new InputStreamReader(is), GetProfile.class);
