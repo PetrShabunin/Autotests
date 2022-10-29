@@ -14,7 +14,7 @@ dependencies {
             'org.assertj:assertj-core:3.23.1',
             'com.codeborne:pdf-test:1.7.0',
             'com.google.code.gson:gson:2.10',
-            'io.rest-assured:rest-assured:5.2.0'
+            'com.fasterxml.jackson.core:jackson-databind:2.13.4'
     )
 }
 

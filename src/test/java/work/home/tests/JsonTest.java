@@ -1,8 +1,12 @@
 package work.home.tests;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import work.home.model.GetProfile;
+import work.home.model.GetProfileJsonReader;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -20,4 +24,14 @@ public class JsonTest{
         assertThat(getProfile.userInfo.name).isEqualTo("Тест");
         assertThat(getProfile.isError).isEqualTo(false);
     }
-}
+    @Test
+    void jsonTestWithJackson() throws Exception {
+        InputStream inputStream = cl.getResourceAsStream("getProfile.json");
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        GetProfileJsonReader getProfileJsonReader = objectMapper.readValue(inputStream, GetProfileJsonReader.class);
+        assertThat(GetProfileJsonReader.GetProfileBody.getId()).isEqualTo(4212314);
+        assertThat(GetProfileJsonReader.GetProfileBody.getLogin()).isEqualTo("test");
+    }
+    }
+
