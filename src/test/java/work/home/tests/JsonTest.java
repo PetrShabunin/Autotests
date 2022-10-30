@@ -1,22 +1,20 @@
 package work.home.tests;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import work.home.model.GetProfile;
 import work.home.model.GetProfileJsonReader;
-
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class JsonTest extends GetProfileJsonReader{
+public class JsonTest {
     static ClassLoader cl = JsonTest.class.getClassLoader();
-
+    //Gson библиотека
     @Test
-    void jsonTestWithGson(){
+    void jsonTestWithGson() {
         InputStream is = cl.getResourceAsStream("getProfile.json");
         Gson gson = new Gson();
         GetProfile getProfile = gson.fromJson(new InputStreamReader(is), GetProfile.class);
@@ -24,12 +22,13 @@ public class JsonTest extends GetProfileJsonReader{
         assertThat(getProfile.userInfo.name).isEqualTo("Тест");
         assertThat(getProfile.isError).isEqualTo(false);
     }
+    //Jackson библиотека
     @Test
-    void jsonTestWithJackson() throws Exception {
+    void jsonTestWithJackson1() throws Exception {
         InputStream inputStream = cl.getResourceAsStream("getProfile.json");
         ObjectMapper objectMapper = new ObjectMapper();
         //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        GetProfileBody getProfileBody = objectMapper.readValue(inputStream, GetProfileBody.class);
+        GetProfileJsonReader.GetProfileBody getProfileBody = objectMapper.readValue(inputStream, GetProfileJsonReader.GetProfileBody.class);
         assertThat(GetProfileJsonReader.GetProfileBody.getId()).isEqualTo(4212314);
         assertThat(GetProfileJsonReader.GetProfileBody.getLogin()).isEqualTo("test");
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="work.home.tests.JsonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-30T09:21:50" hostname="MacBook-Pro" time="0.204">
+<testsuite name="work.home.tests.JsonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-30T09:30:45" hostname="MacBook-Pro" time="0.229">
   <properties/>
-  <testcase name="jsonTestWithJackson()" classname="work.home.tests.JsonTest" time="0.204"/>
+  <testcase name="jsonTestWithJackson1()" classname="work.home.tests.JsonTest" time="0.229"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
