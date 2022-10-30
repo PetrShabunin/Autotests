@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class JsonTest{
+public class JsonTest extends GetProfileJsonReader{
     static ClassLoader cl = JsonTest.class.getClassLoader();
 
     @Test
@@ -28,10 +28,10 @@ public class JsonTest{
     void jsonTestWithJackson() throws Exception {
         InputStream inputStream = cl.getResourceAsStream("getProfile.json");
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        GetProfileJsonReader getProfileJsonReader = objectMapper.readValue(inputStream, GetProfileJsonReader.class);
+        //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        GetProfileBody getProfileBody = objectMapper.readValue(inputStream, GetProfileBody.class);
         assertThat(GetProfileJsonReader.GetProfileBody.getId()).isEqualTo(4212314);
         assertThat(GetProfileJsonReader.GetProfileBody.getLogin()).isEqualTo("test");
     }
-    }
+}
 
