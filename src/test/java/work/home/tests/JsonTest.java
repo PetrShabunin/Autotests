@@ -12,16 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonTest {
     static ClassLoader cl = JsonTest.class.getClassLoader();
-    //Gson библиотека
-    @Test
-    void jsonTestWithGson() {
-        InputStream is = cl.getResourceAsStream("getProfile.json");
-        Gson gson = new Gson();
-        GetProfile getProfile = gson.fromJson(new InputStreamReader(is), GetProfile.class);
-        assertThat(getProfile.id).isEqualTo(1434654546);
-        assertThat(getProfile.userInfo.name).isEqualTo("Тест");
-        assertThat(getProfile.isError).isEqualTo(false);
-    }
     //Jackson библиотека
     @Test
     void jsonTestWithJackson() throws Exception {

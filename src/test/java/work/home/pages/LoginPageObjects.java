@@ -1,5 +1,7 @@
 package work.home.pages;
 
+import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPageObjects {
@@ -10,14 +12,14 @@ public class LoginPageObjects {
     }
     public LoginPageObjects LoginToCabinet(String name, String pass){
         open("https://lk.rt.ru");
-        $("#t-btn-tab-login").click();
+        $("#t-btn-tab-login").shouldBe(Condition.appear).click();
         $("#username").setValue(name);
         $("#password").setValue(pass);
         $("#kc-login").click();
         return this;
     }
     public LoginPageObjects openChat(){
-        $("#widget_bar").click();
+        $("#widget_bar").shouldBe(Condition.visible).click();
         return this;
     }
 }

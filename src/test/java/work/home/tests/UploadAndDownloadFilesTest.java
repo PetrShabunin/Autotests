@@ -2,6 +2,7 @@ package work.home.tests;
 
 import com.codeborne.pdftest.PDF;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import work.home.pages.LoginPageObjects;
 import java.io.*;
 
