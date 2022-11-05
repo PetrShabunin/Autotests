@@ -9,6 +9,7 @@ import java.io.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UploadAndDownloadFilesTest extends TestBase {
@@ -22,12 +23,16 @@ public class UploadAndDownloadFilesTest extends TestBase {
         }
     @Test
     void uploadFileInChat() {
-        loginPageObjects
-                .LoginToCabinet("rtkid_1665832683250", "Test1234!")
-                .openChat();
-        $("input[type = file]").uploadFromClasspath("test.png");
-        $(".name").shouldHave(text("test"));
-        $("#widget_closeChat").click();
+        step("open lk.rt.ru and chat", () -> {
+            loginPageObjects
+                    .LoginToCabinet("rtkid_1665832683250", "Test1234!")
+                    .openChat();
+        });
+        step("upload img and check img", () -> {
+            $("input[type = file]").uploadFromClasspath("test.png");
+            $(".name").shouldHave(text("test"));
+            $("#widget_closeChat").click();
+        });
     }
 }
 
