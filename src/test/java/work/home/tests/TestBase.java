@@ -16,10 +16,17 @@ public class TestBase {
     static void configurations() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("browserName", "chrome");
+//        capabilities.setCapability("browserVersion", "100.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+
+        Configuration.browserCapabilities = capabilities;
         Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1600x1080";
         Configuration.timeout = 10000;
         Configuration.pollingInterval = 3000;
+        Configuration.browserSize = "1600x1080";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
     @AfterEach
@@ -30,5 +37,6 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
