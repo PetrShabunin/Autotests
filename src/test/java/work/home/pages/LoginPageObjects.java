@@ -12,7 +12,7 @@ public class LoginPageObjects {
     }
     public LoginPageObjects LoginToCabinet(String name, String pass){
         open("https://lk.rt.ru");
-        $("#t-btn-tab-login").shouldBe(Condition.appear).click();
+        $("#t-btn-tab-login").shouldBe(Condition.visible).click();
         $("#username").setValue(name);
         $("#password").setValue(pass);
         $("#kc-login").click();
