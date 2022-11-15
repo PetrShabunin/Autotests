@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="work.home.tests.JsonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-30T09:35:19" hostname="MacBook-Pro" time="0.207">
-  <properties/>
-  <testcase name="jsonTestWithJackson1()" classname="work.home.tests.JsonTest" time="0.207"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

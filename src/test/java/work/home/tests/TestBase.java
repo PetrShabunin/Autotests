@@ -23,20 +23,21 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 10000;
-        Configuration.pollingInterval = 3000;
+//        Configuration.holdBrowserOpen = true;
+//        Configuration.timeout = 10000;
+//        Configuration.pollingInterval = 3000;
         Configuration.browserSize = "1600x1080";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
     @AfterEach
     void endScenario(){
-        loginPageObjects.logout();
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
+//        loginPageObjects.logout();
+//        Selenide.clearBrowserCookies();
+//        Selenide.clearBrowserLocalStorage();
+        String sessionId = Attach.getSessionId();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+        Attach.addVideo(sessionId);
     }
 }
