@@ -31,9 +31,9 @@ public class TestBase {
     }
     @AfterEach
     void endScenario(){
-//        loginPageObjects.logout();
-//        Selenide.clearBrowserCookies();
-//        Selenide.clearBrowserLocalStorage();
+        loginPageObjects.logout();
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
         String sessionId = Attach.getSessionId();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
