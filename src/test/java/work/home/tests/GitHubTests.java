@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class GitHubTests {
     @Test
-    void cartUnregistered(){
+    void gitHubSearch(){
         open("https://github.com/");
         $("[data-scoped-placeholder=Search]").setValue("selenide").pressEnter();
         $$(".repo-list-item").first().$("a").click();
