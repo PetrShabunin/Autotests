@@ -1,18 +1,19 @@
 package work.home.pages;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPageObjects {
     public LoginPageObjects openPageRT(){
-        open("https://lk.rt.ru");
+        open("https://front-spectrs-staging.apps.okd.stage.digital.rt.ru");
         return this;
     }
-    public LoginPageObjects choseAuthMethod(){
-        $("#t-btn-tab-login").click();
-        return this;
-    }
-    public LoginPageObjects setUsername(String value){
-        $("#username").setValue(value);
+//    public LoginPageObjects choseAuthMethod(){
+//        $("#t-btn-tab-login").click();
+//        return this;
+//    }
+    public LoginPageObjects setUserName(String value){
+        $("[data-test-id=userEmail]").setValue(value);
         return this;
     }
     public LoginPageObjects logout(){
@@ -21,11 +22,11 @@ public class LoginPageObjects {
         return this;
     }
     public LoginPageObjects setUserPass(String value){
-        $("#password").setValue(value);
+        $(byText("Пароль")).setValue(value);
         return this;
     }
     public LoginPageObjects loginButtonClick(){
-        $("#kc-login").click();
+        $("[class=sc-dAlyuH]").click();
         return this;
     }
 }

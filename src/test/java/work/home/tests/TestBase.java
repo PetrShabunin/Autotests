@@ -8,7 +8,7 @@ public class TestBase{
     static void configurations() {
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1600x1080";
-        Configuration.timeout = 10000;
-        Configuration.pollingInterval = 3000;
+//        Configuration.timeout = 10000;
+//        Configuration.pollingInterval = 3000;
     }
 }
